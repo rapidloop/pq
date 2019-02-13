@@ -6,7 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/lib/pq"
+	"github.com/rapidloop/pq"
 )
 
 func ExampleNewConnector() {

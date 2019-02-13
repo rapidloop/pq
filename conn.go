@@ -19,7 +19,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/lib/pq/oid"
+	"github.com/rapidloop/pq/oid"
 )
 
 // Common error types
