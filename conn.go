@@ -270,7 +270,7 @@ func DialOpen(d Dialer, name string) (_ driver.Conn, err error) {
 	o["port"] = "5432"
 	// N.B.: Extra float digits should be set to 3, but that breaks
 	// Postgres 8.4 and older, where the max is 2.
-	o["extra_float_digits"] = "2"
+	// o["extra_float_digits"] = "2" // removed for compatibility with pgbouncer
 	for k, v := range parseEnviron(os.Environ()) {
 		o[k] = v
 	}
