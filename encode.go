@@ -113,7 +113,11 @@ func textDecode(parameterStatus *parameterStatus, s []byte, typ oid.Oid) interfa
 	case oid.T_int8, oid.T_int4, oid.T_int2:
 		i, err := strconv.ParseInt(string(s), 10, 64)
 		if err != nil {
-			errorf("%s", err)
+			// If we're here it means the server sent an invalid value for an
+			// int. Not raising an error allows the client to read it as a
+			// string.
+			//errorf("%s", err)
+			return string(s)
 		}
 		return i
 	case oid.T_float4, oid.T_float8:
